@@ -4,4 +4,12 @@
   <artifactId>BillsBillsBills</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <dependencies>
+  <dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-core</artifactId>
+	<version>4.2.0.RELEASE</version>
+</dependency>
+</dependencies>
+  
 </project>
