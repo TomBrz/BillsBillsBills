@@ -5,7 +5,6 @@
 	<artifactId>BillsBillsBills</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 	<build>
 		<finalName>Bills</finalName>
 		<plugins>
@@ -32,14 +31,6 @@
 						<home>${env.TOMCAT_HOME}</home>
 					</configuration>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
