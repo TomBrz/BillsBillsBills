@@ -1,4 +1,4 @@
-package be.spring.controller;
+package be.billsbillsbills.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
