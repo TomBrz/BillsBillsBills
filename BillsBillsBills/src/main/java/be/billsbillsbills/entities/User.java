@@ -1,22 +1,40 @@
-package be.billsbillsbills.entities;
+package Entitites;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	private String name;
 	private String familyName;
 	private String email;
-	private Address adress;
+	
+
+	
+	@Embedded
+	private Address address = new Address();
+	
+	@OneToMany(cascade={CascadeType.PERSIST}, mappedBy="user")
+	private List<Record_In> recordsIn = new ArrayList<Record_In>();
+	
+	@OneToMany(cascade={CascadeType.PERSIST}, mappedBy="user")
+	private List<Record_out> recordsOut = new ArrayList<Record_out>();
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -32,11 +50,31 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Address getAdress() {
-		return adress;
+	public Address getAddress() {
+		return address;
 	}
-	public void setAdress(Address adress) {
-		this.adress = adress;
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public long getId(){
+		return id;
+	}
+	
+	public void addRecordIn(Record_In recordIn){
+		recordsIn.add(recordIn);
+		recordIn.setUser(this);
+	}
+	public void removeRecordIn(Record_In recordIn){
+		recordsIn.remove(recordIn);
+		recordIn.setUser(null);
+	}
+	public void addRecordOut(Record_out recordOut){
+		recordsOut.add(recordOut);
+		recordOut.setUser(this);
+	}
+	public void removeRecordOut(Record_out recordOut){
+		recordsOut.remove(recordOut);
+		recordOut.setUser(null);
 	}
 	
 	
