@@ -18,11 +18,16 @@ private Client client;
 
 
 @Id
+@GeneratedValue
 public long getId() {
 	return id;
 }
 public void setClient(Client client){
 	this.client=client;
+}
+public void setId(long id){
+	this.id = id;
+	
 }
 
 @ManyToOne
@@ -30,9 +35,7 @@ public void setClient(Client client){
 public Client getClient(){
 	return client;
 }
-public void setId(long id) {
-	this.id = id;
-}
+
 public String getInvoiceNumber() {
 	return invoiceNumber;
 }

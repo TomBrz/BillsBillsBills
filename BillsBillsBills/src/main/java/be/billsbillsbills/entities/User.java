@@ -25,10 +25,10 @@ public class User {
 	@Embedded
 	private Address address = new Address();
 	
-	@OneToMany(cascade={CascadeType.PERSIST}, mappedBy="user")
+	@OneToMany(mappedBy="user")
 	private List<Record_In> recordsIn = new ArrayList<Record_In>();
 	
-	@OneToMany(cascade={CascadeType.PERSIST}, mappedBy="user")
+	@OneToMany(mappedBy="user")
 	private List<Record_out> recordsOut = new ArrayList<Record_out>();
 	
 	public String getName() {

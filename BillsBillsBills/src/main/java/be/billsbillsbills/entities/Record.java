@@ -1,25 +1,31 @@
 package Entitites;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Converter;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @MappedSuperclass
 public class Record {
-	private Date date;
+	private LocalDate date;
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	private String description;
 	private double amount;
 	private float percentage;
 	private String url;
-	public Date getDate() {
+	
+
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public Category getCategory() {
