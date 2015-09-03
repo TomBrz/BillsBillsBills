@@ -9,6 +9,20 @@
 
 	<context:component-scan base-package="be.spring." />
 	<mvc:annotation-driven />
+	
+	<bean id ="ds" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://localhost:3306/billsbillsbills"/>
+	<property name="username" value="guest"/>
+	<property name="password" value="password"/>
+	</bean>
+	<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<property name="persistenceUnitName" value="billsbillsbills"/>
+	<property name="dataSource" ref="ds"></property>
+	<property name="persistenceProvider">
+	<bean class="org.hibernate.ejb.HibernatePersistence"/>
+	</property>
+	</bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
