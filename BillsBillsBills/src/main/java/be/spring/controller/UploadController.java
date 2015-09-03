@@ -21,10 +21,10 @@ import be.spring.service.UploadServiceImpl;
 @Controller
 @RequestMapping("/Testing")
 public class UploadController {
-	
+
 	@Autowired
 	private UploadService uploadService;
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String handleForm() {
 		System.out.println("Get");
@@ -45,9 +45,9 @@ public class UploadController {
 		// Ophalen van de tomcat path & aanmaken image folder indien deze niet
 		// bestaat
 		String directoryString = System.getenv("TOMCAT_HOME") + "images\\";
-		System.out.println(System.getenv("TOMCAT_HOME") + "images/");
+		// System.out.println(System.getenv("TOMCAT_HOME") + "images/");
 		String directoryStringEscaped = directoryString.replace("\\", "/");
-		System.out.println(directoryStringEscaped);
+		// System.out.println(directoryStringEscaped);
 		File directory = new File(directoryStringEscaped);
 
 		if (!directory.exists()) {
@@ -61,11 +61,11 @@ public class UploadController {
 			InputStream inputStream = new ByteArrayInputStream(byteArr);
 
 			String link = directoryString + file.getOriginalFilename();
-			System.out.println(link);
+			// System.out.println(link);
 
 			// TESTING
-			UploadService service = new UploadServiceImpl();
-			service.storeImage(link.toString());
+			System.out.println("TESTINGTESTING");
+			uploadService.storeImage(link);
 
 			OutputStream outputStream = new FileOutputStream(new File(link));
 
