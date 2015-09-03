@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,10 @@ import be.spring.service.UploadServiceImpl;
 @Controller
 @RequestMapping("/Testing")
 public class UploadController {
+	
+	@Autowired
+	private UploadService uploadService;
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String handleForm() {
 		System.out.println("Get");
@@ -28,7 +33,7 @@ public class UploadController {
 
 	@ModelAttribute("imageurl")
 	public String getImage() {
-		String imageUrl = new UploadServiceImpl().findImage();
+		String imageUrl = uploadService.findImage();
 		return imageUrl;
 	}
 

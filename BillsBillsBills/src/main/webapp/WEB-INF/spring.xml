@@ -18,7 +18,7 @@
 	</bean>
 	<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 	<property name="persistenceUnitName" value="billsbillsbills"/>
-	<property name="dataSource" ref="ds"></property>
+	<property name="dataSource" ref="ds"/>
 	<property name="persistenceProvider">
 	<bean class="org.hibernate.ejb.HibernatePersistence"/>
 	</property>
