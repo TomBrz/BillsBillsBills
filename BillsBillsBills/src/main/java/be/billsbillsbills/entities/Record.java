@@ -1,4 +1,4 @@
-package Entitites;
+package be.billsbillsbills.entities;
 
 import java.time.LocalDate;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package Entitites;
+package be.billsbillsbills.entities;
 
 import java.util.ArrayList;
 import java.util.List;
