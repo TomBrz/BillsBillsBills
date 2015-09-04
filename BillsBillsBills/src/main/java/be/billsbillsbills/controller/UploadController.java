@@ -37,6 +37,7 @@ public class UploadController {
 			HttpServletRequest request) throws IOException {
 		System.out.println("POST");
 
+
 		ServletContext context = RequestContextUtils.getWebApplicationContext(
 				request).getServletContext();
 
