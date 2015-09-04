@@ -1,4 +1,4 @@
-package be.spring.controller;
+package be.billsbillsbills.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import be.spring.service.UploadService;
-import be.spring.service.UploadServiceImpl;
+import be.billsbillsbills.service.UploadService;
 
 @Controller
 @RequestMapping("/Testing")

@@ -31,7 +31,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<bean id="uploadService" class="be.spring.service.UploadServiceImpl" />
+	<bean id="uploadService" class="be.billsbillsbills.service.UploadServiceImpl" />
 
 	<!-- Form Upload -->
 	<bean id="multipartResolver"

@@ -1,4 +1,4 @@
-package be.spring.service;
+package be.billsbillsbills.service;
 
 public interface UploadService {
 

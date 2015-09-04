@@ -1,4 +1,4 @@
-package be.spring.service;
+package be.billsbillsbills.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,10 +27,9 @@ public class UploadServiceImpl implements UploadService {
 		tx.begin();
 
 		System.out.println("!!!!!!!LINK IS: " + link + " !!!!!!!!!!!!");
-		
+
 		Record_In recordIn = new Record_In();
 		recordIn.setUrl(link);
-		
 
 		em.persist(recordIn);
 
@@ -51,6 +50,7 @@ public class UploadServiceImpl implements UploadService {
 		tx.commit();
 		em.close();
 
+		System.out.println("is null? " + recordIn == null);
 		return "test";
 	}
 
