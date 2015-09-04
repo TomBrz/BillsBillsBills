@@ -41,7 +41,7 @@ public class UploadController {
 				request).getServletContext();
 
 		// locatie van de image directory
-		String directoryString = context.getRealPath("/") + "/images/";
+		String directoryString = context.getRealPath("/") + "images\\";
 
 		helper.createDirectory(directoryString);
 		helper.uploadImage(directoryString, file, uploadService);
