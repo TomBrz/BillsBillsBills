@@ -43,7 +43,7 @@ public class UploadController {
 
 		// Ophalen van de tomcat path & aanmaken image folder indien deze niet
 		// bestaat
-		String directoryString = System.getenv("TOMCAT_HOME") + "images\\";
+		String directoryString = System.getenv("TOMCAT_HOME") + "\\images\\";
 		// System.out.println(System.getenv("TOMCAT_HOME") + "images/");
 		String directoryStringEscaped = directoryString.replace("\\", "/");
 		// System.out.println(directoryStringEscaped);
