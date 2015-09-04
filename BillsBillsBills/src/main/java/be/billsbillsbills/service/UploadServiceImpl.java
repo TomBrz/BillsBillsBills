@@ -26,8 +26,6 @@ public class UploadServiceImpl implements UploadService {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 
-		System.out.println("!!!!!!!LINK IS: " + link + " !!!!!!!!!!!!");
-
 		Record_In recordIn = new Record_In();
 		recordIn.setUrl(link);
 
@@ -50,8 +48,14 @@ public class UploadServiceImpl implements UploadService {
 		tx.commit();
 		em.close();
 
-		System.out.println("is null? " + recordIn == null);
-		return "test";
+		System.out.println("is null?");
+		System.out.println((recordIn == null));
+
+		if (recordIn == null) {
+			return null;
+		} else {
+			return recordIn.getUrl();
+		}
 	}
 
 }
