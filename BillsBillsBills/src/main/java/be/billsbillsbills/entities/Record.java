@@ -18,15 +18,10 @@ import javax.persistence.TemporalType;
 public class Record {
 	private long id;
 	private LocalDate date;
-	
 	private Category category;
-	
 	private String description;
-	
 	private double amount;
-	
 	private float percentage;
-	
 	private String url;
 	
 
