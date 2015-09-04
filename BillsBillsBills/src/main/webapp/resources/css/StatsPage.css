@@ -5,18 +5,30 @@ html{
 body{
 	height:100%
 }
+
+
+.grey{
+	background-color:#222;
+}
+
 header{
-	background-color:#333333;
-	height:5em;
-	width:5em;;
-}
-#middle{
-	background-color:#F0F0F0;
-	border:5px;
 	
-}
-#try{
 	height:5em;
 	width:5em;
-	background-color:#e3e3e3;
+	
+}
+#wrapper{
+	background-color:#333;
+	min-height:100%;
+	margin-bottom:-5em;
+	padding-bottom:5em;
+	width:100%;
+}
+
+
+footer{
+	padding:none;
+	margin:none;
+	height:5em;
+	background-color:#002147;
 }
