@@ -1,25 +1,26 @@
 package be.billsbillsbills.controller;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import be.billsbillsbills.service.UploadService;
 
 @Controller
 @RequestMapping("/Testing")
 public class UploadController {
+
+	ControllerHelper helper = new ControllerHelper();
 
 	@Autowired
 	private UploadService uploadService;
@@ -30,53 +31,23 @@ public class UploadController {
 		return "form_test";
 	}
 
-	@ModelAttribute("imageurl")
-	public String getImage() {
-		String imageUrl = uploadService.findImage();
-		return imageUrl;
-	}
-
 	@RequestMapping(method = RequestMethod.POST)
-	public String handleFormUpload(@RequestParam("image") MultipartFile file)
-			throws IOException {
+	public ModelAndView handleFormUpload(
+			@RequestParam("image") MultipartFile file,
+			HttpServletRequest request) throws IOException {
 		System.out.println("POST");
 
-		// Ophalen van de tomcat path & aanmaken image folder indien deze niet
-		// bestaat
-		String directoryString = System.getenv("TOMCAT_HOME") + "images\\";
-		// System.out.println(System.getenv("TOMCAT_HOME") + "images/");
-		String directoryStringEscaped = directoryString.replace("\\", "/");
-		// System.out.println(directoryStringEscaped);
-		File directory = new File(directoryStringEscaped);
+		ServletContext context = RequestContextUtils.getWebApplicationContext(
+				request).getServletContext();
 
-		if (!directory.exists()) {
-			directory.mkdir();
-		}
+		// locatie van de image directory
+		String directoryString = context.getRealPath("/") + "/images/";
 
-		// Wegschrijven van de afbeelding naar de image folder
-		if (!file.isEmpty()) {
+		helper.createDirectory(directoryString);
+		helper.uploadImage(directoryString, file, uploadService);
 
-			byte[] byteArr = file.getBytes();
-			InputStream inputStream = new ByteArrayInputStream(byteArr);
-
-			String link = directoryString + file.getOriginalFilename();
-			// System.out.println(link);
-
-			// TESTING
-			System.out.println("TESTINGTESTING");
-			uploadService.storeImage(link);
-
-			OutputStream outputStream = new FileOutputStream(new File(link));
-
-			int read = 0;
-			byte[] bytes = new byte[1024];
-
-			while ((read = inputStream.read(bytes)) != -1) {
-				outputStream.write(bytes, 0, read);
-			}
-			outputStream.close();
-		}
-		return "uploadtest";
+		return new ModelAndView("uploadtest", "imageurl",
+				uploadService.findImage());
 	}
 
 }

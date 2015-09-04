@@ -7,11 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Record_In {
@@ -54,7 +52,7 @@ public class Record_In {
 		this.category = category;
 	}
 
-	@Column(name = "description", nullable = true)
+	@Column(name = "description")
 	public String getDescription() {
 		return description;
 	}
@@ -63,7 +61,7 @@ public class Record_In {
 		this.description = description;
 	}
 
-	@Column(name = "amount", nullable = true)
+	@Column(name = "amount")
 	public double getAmount() {
 		return amount;
 	}
