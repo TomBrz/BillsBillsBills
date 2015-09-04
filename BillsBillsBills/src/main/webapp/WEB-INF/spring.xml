@@ -32,6 +32,7 @@
 	</bean>
 
 	<bean id="uploadService" class="be.billsbillsbills.service.UploadServiceImpl" />
+	<bean id="newUserService" class="be.billsbillsbills.service.NewUserServiceImpl" />
 
 	<!-- Form Upload -->
 	<bean id="multipartResolver"
