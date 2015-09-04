@@ -2,7 +2,6 @@ package be.billsbillsbills.controller;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.support.RequestContextUtils;
 
 import be.billsbillsbills.service.UploadService;
 
@@ -38,11 +36,15 @@ public class UploadController {
 		System.out.println("POST");
 
 
-		ServletContext context = RequestContextUtils.getWebApplicationContext(
-				request).getServletContext();
-
-		// locatie van de image directory
-		String directoryString = context.getRealPath("/") + "images\\";
+//		ServletContext context = RequestContextUtils.getWebApplicationContext(
+//				request).getServletContext();
+//		String directoryString = context.getRealPath("/") + "\\resources\\images\\";
+		
+		
+		String tomcatHome = System.getenv("TOMCAT_HOME");
+		String directoryString = tomcatHome + "webapps/resources/images/";
+		System.out.println(directoryString);
+		
 
 		helper.createDirectory(directoryString);
 		helper.uploadImage(directoryString, file, uploadService);

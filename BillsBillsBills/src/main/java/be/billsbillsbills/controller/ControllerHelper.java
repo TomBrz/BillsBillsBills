@@ -19,15 +19,13 @@ public class ControllerHelper {
 		// bestaat
 		String directoryStringEscaped = directoryString.replace("\\", "/");
 		File directory = new File(directoryStringEscaped);
+		
+		System.out.println("ESCAPED: " + directoryStringEscaped);
+		System.out.println(directory.exists());
 
 		if (!directory.exists()) {
-			directory.mkdir();
+			directory.mkdirs();
 		}
-	}
-
-	public String getImageLink(String directoryString, MultipartFile file) {
-		String link = directoryString + file.getOriginalFilename();
-		return link;
 	}
 
 	public void uploadImage(String directoryString, MultipartFile file,
@@ -41,8 +39,8 @@ public class ControllerHelper {
 				byte[] byteArr = file.getBytes();
 				InputStream inputStream = new ByteArrayInputStream(byteArr);
 
-				String link = getImageLink(directoryString, file);
-				uploadService.storeImage(link);
+				String link = directoryString + file.getOriginalFilename();
+				uploadService.storeImage(file.getOriginalFilename());
 
 				outputStream = new FileOutputStream(new File(link));
 

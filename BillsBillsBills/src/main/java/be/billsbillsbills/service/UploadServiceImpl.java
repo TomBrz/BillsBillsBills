@@ -43,13 +43,9 @@ public class UploadServiceImpl implements UploadService {
 		tx.begin();
 
 		Record_In recordIn = em.find(Record_In.class, 1L);
-		System.out.println(recordIn);
 
 		tx.commit();
 		em.close();
-
-		System.out.println("is null?");
-		System.out.println((recordIn == null));
 
 		if (recordIn == null) {
 			return null;

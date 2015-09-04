@@ -8,6 +8,7 @@
 
 	<context:component-scan base-package="be." />
 	<mvc:annotation-driven />
+<!-- 	<mvc:resources mapping="/resources/**" location="/resources/images/" /> -->
 
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

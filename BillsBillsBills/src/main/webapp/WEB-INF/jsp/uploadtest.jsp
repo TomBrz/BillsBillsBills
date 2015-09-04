@@ -9,6 +9,7 @@
 </head>
 <body>
 	testingtestingtestingtestingtestingtestingtesting
-	<br /> ${imageurl}
+	<br /> ${imageurl} <br/>
+	<img src="/resources/images/${imageurl}"/>
 </body>
 </html>
