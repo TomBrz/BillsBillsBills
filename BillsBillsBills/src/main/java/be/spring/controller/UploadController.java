@@ -64,8 +64,8 @@ public class UploadController {
 			System.out.println(link);
 
 			// TESTING
-			UploadService service = new UploadServiceImpl();
-			service.storeImage(link.toString());
+			
+			uploadService.storeImage(link.toString());
 
 			OutputStream outputStream = new FileOutputStream(new File(link));
 

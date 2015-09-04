@@ -39,7 +39,7 @@ public class UploadServiceImpl implements UploadService {
 
 		tx.commit();
 		em.close();
-		emf.close();
+		
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class UploadServiceImpl implements UploadService {
 
 		tx.commit();
 		em.close();
-		emf.close();
+	
 
 		return  recordIn.getUrl();
 	}
