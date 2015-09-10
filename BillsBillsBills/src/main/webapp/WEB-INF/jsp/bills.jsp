@@ -32,7 +32,7 @@
 <link
 	href="${pageContext.servletContext.contextPath}/resources/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link
+<%-- 	<link
 	href="${pageContext.servletContext.contextPath}/resources/css/StatsPage.css"
 	rel="stylesheet" type="text/css" /> --%>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -82,12 +82,12 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
 
-					<li class="active"><a href="stats.htm"><i
+					<li><a href="stats.htm"><i
 							class="fa fa-fw fa-bar-chart-o"></i> My Stats</a></li>
 
 					<li><a href="invoices.htm"><i class="fa fa-fw fa-edit"></i>
 							Invoices</a></li>
-					<li><a href="bills.htm"><i class="fa fa-fw fa-file"></i>
+					<li class="active"><a href="bills.htm"><i class="fa fa-fw fa-file"></i>
 							Bills</a></li>
 
 					

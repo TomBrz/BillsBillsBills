@@ -1,22 +1,3 @@
-@CHARSET "ISO-8859-1";
-html{
-	height:100%;
-}
-body{
-	height:100%
-}
-header{
-	background-color:#333333;
-	height:5em;
-	width:5em;;
-}
-#middle{
-	background-color:#F0F0F0;
-	border:5px;
-	
-}
-#try{
-	height:5em;
-	width:5em;
-	background-color:#e3e3e3;
+a:active {
+	background-color:black !important;}
 }
