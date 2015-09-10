@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/stats")
-public class StatsController {
+@RequestMapping("/invoices")
+public class InvoicesController {
+	
 	@RequestMapping(method=RequestMethod.GET)
 	private String handleGet() {
-		return "statspage";
-		
+		return "invoices";
 
 	}
 
