@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import be.billsbillsbills.service.UploadService;
 
 @Controller
-@RequestMapping("/Testing")
+@RequestMapping("/upload")
 public class UploadController {
 
 	ControllerHelper helper = new ControllerHelper();

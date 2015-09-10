@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>upload test</title>
 </head>
 <body>
-	testingtestingtestingtestingtestingtestingtesting
 	<br /> ${imageurl} <br/>
 	<img src="/resources/images/${imageurl}"/>
 </body>

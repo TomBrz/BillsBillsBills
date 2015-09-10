@@ -30,7 +30,9 @@ public class UserController {
 			@RequestParam("email") String email,
 			@RequestParam("street") String street,
 			@RequestParam("number") String number,
-			@RequestParam("po") String pO, @RequestParam("postal") String postal) {
+			@RequestParam("po") String pO,
+			@RequestParam("postal") String postal,
+			@RequestParam("password") String password) {
 
 		Address address = new Address();
 		address.setNumber(number);
@@ -43,6 +45,8 @@ public class UserController {
 		user.setFamilyName(lastName);
 		user.setEmail(email);
 		user.setAddress(address);
+		user.setRole();
+		user.setPassword(password);
 
 		newUserService.storeUser(user);
 	}

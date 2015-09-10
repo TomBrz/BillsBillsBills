@@ -18,6 +18,8 @@ public class User {
 	private String name;
 	private String familyName;
 	private String email;
+	private String role;
+	private String password;
 
 	@Embedded
 	private Address address = new Address();
@@ -82,6 +84,22 @@ public class User {
 	public void removeRecordOut(Record_out recordOut) {
 		recordsOut.remove(recordOut);
 		recordOut.setUser(null);
+	}
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole() {
+		this.role = "ROLE_USER";
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
