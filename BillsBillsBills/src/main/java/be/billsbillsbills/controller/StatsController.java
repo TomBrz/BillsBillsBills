@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class StatsController {
 	@RequestMapping(method=RequestMethod.GET)
 	private String handleGet() {
-		return "StatsPage";
+		return "statspage";
 		
 
 	}

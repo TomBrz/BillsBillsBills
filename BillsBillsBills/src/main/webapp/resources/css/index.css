@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+
+*{
+	padding:0px;
+	margin:0px;
+}
+body {
+	padding:0px;
+	margin:0px;
+}
+#wrapper{
+	margin:0px;
+	padding:0px;
+}
+
+header{
+	height:4em;
+	background-color:black;
+	width:100%;
+	padding:0px;
+	margin:0px;
+	
+}
+ul{
+	height:
+}
+
+#image_part{
+	position:relative;
+	width:100%;
+	
+}
+#image_part img{
+	width:100%;
+}
+#explanation{
+	position:absolute;
+	top:6em;
+	left:6em;
+	background-color:#fff;
+	opacity:0.5;
+
+}
+#explanation p{
+	font-size:2em;
+	margin:2em;
+}
+#create_account{
+	color:red;
+}

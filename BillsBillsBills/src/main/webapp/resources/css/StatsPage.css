@@ -1,33 +1,6 @@
+
 @CHARSET "ISO-8859-1";
-html{
-	height:100%;
-}
-body{
-	height:100%
-}
 
+a:active {
+	background-color:black !important;}
 
-.grey{
-	background-color:#222;
-}
-
-header{
-	
-	height:5em;
-	width:5em;
-	
-}
-#wrapper{
-	min-height:100%;
-	margin-bottom:-5em;
-	padding-bottom:5em;
-	width:100%;
-}
-
-
-footer{
-	padding:none;
-	margin:none;
-	height:5em;
-	background-color:#002147;
-}
