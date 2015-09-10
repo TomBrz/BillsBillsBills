@@ -28,23 +28,42 @@ ul{
 #image_part{
 	position:relative;
 	width:100%;
+	padding:0px;
+	margin:0px;
 	
 }
 #image_part img{
 	width:100%;
+	margin:0px;
+}
+.form-horizontal{
+	margin-left:0px !important;
+	margin-right:0px !important;
+
 }
 #explanation{
 	position:absolute;
-	top:6em;
+	top:4em;
 	left:6em;
 	background-color:#fff;
 	opacity:0.5;
 
 }
+
 #explanation p{
 	font-size:2em;
 	margin:2em;
 }
+@media screen and (max-width: 700px){
+	#explanation p{
+	font-size:1em;
+	margin:1em;}
+	
+}
 #create_account{
 	color:red;
+}
+#create_account a{
+	color:red;
+	text-decoration:none;
 }
