@@ -197,6 +197,9 @@
 								<label for="datepicker">date:</label><input id="datepicker"/>
 								<br>
 								<br>
+								<input id="file" type="file" value="upload file"/>
+								<br>
+								<br>
 								<input type="submit" value="submit" class="btn btn-primary"/>
 								
 								<button type="button" class="btn btn-default"
