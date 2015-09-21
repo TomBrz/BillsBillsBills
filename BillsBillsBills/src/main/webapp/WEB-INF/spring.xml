@@ -74,6 +74,7 @@
 			access="ROLE_USER" />
 		<security:form-login login-page="/login.htm"
 			default-target-url="/stats.htm" always-use-default-target="true" />
+		<security:logout logout-success-url="/login.htm" />
 		<security:csrf disabled="true" />
 	</security:http>
 

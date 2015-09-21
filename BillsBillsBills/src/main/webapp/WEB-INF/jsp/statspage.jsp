@@ -34,7 +34,8 @@
 	rel="stylesheet" type="text/css">
 <link
 	href="${pageContext.servletContext.contextPath}/resources/css/StatsPage.css"
-	rel="stylesheet" type="text/css" /> --%>
+	rel="stylesheet" type="text/css" />
+--%>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -74,8 +75,8 @@
 						<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
 						</li>
 						<li class="divider"></li>
-						<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log
-								Out</a></li>
+						<li><a href="logout"><i class="fa fa-fw fa-power-off"></i>
+								Log Out</a></li>
 					</ul></li>
 			</ul>
 			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -84,13 +85,12 @@
 
 					<li class="active"><a href="stats.htm"><i
 							class="fa fa-fw fa-bar-chart-o"></i> My Stats</a></li>
-
 					<li><a href="invoices.htm"><i class="fa fa-fw fa-edit"></i>
 							Invoices</a></li>
 					<li><a href="bills.htm"><i class="fa fa-fw fa-file"></i>
 							Bills</a></li>
 
-					
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -106,7 +106,7 @@
 						<h1 class="page-header">
 							My Stats Page -- ${user} <small></small>
 						</h1>
-						
+
 					</div>
 				</div>
 				<!-- /.row -->
@@ -116,10 +116,10 @@
 						<div class="alert alert-info alert-dismissable">
 							<button type="button" class="close" data-dismiss="alert"
 								aria-hidden="true">&times;</button>
-							<i class="fa fa-info-circle"></i> <strong>Alert- dont forget to pay your vat</strong>
-							don't <a
+							<i class="fa fa-info-circle"></i> <strong>Alert- dont
+								forget to pay your vat</strong> don't <a
 								href="http://startbootstrap.com/template-overviews/sb-admin-2"
-								class="alert-link">VAT-payments</a> 
+								class="alert-link">VAT-payments</a>
 						</div>
 					</div>
 				</div>

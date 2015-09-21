@@ -53,8 +53,6 @@
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-8">
 						<input type="submit" class="btn btn-primary" value="Sign in" /><br />
-						<input type="hidden" name="${_csrf.parameterName}"
-							value="${_csrf.token}" />
 						<p>
 							not a user yet? <span id="create_account"><a
 								href="new_user.htm">create an account </a></span>here
