@@ -25,7 +25,7 @@ public class UserController {
 	}
 
 	@RequestMapping(params = "sent")
-	public void storeUser(@RequestParam("fname") String firstName,
+	public String storeUser(@RequestParam("fname") String firstName,
 			@RequestParam("lname") String lastName,
 			@RequestParam("email") String email,
 			@RequestParam("street") String street,
@@ -49,5 +49,7 @@ public class UserController {
 		user.setPassword(password);
 
 		newUserService.storeUser(user);
+		
+		return "index";
 	}
 }

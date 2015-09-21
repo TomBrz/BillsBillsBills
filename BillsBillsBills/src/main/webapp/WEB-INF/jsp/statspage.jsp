@@ -104,7 +104,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							My Stats Page <small></small>
+							My Stats Page -- ${user} <small></small>
 						</h1>
 						
 					</div>

@@ -41,6 +41,10 @@
 		<property name="maxUploadSize" value="5000000" />
 	</bean>
 
+	<!-- View controllers -->
+	<mvc:view-controller path="/index.htm" />
+
+
 	<!-- Spring sec -->
 	<security:global-method-security
 		secured-annotations="enabled" />
@@ -68,6 +72,9 @@
 	<security:http auto-config='true' use-expressions="false">
 		<security:intercept-url pattern="/stats.htm"
 			access="ROLE_USER" />
+		<security:form-login login-page="/login.htm"
+			default-target-url="/stats.htm" always-use-default-target="true" />
+		<security:csrf disabled="true" />
 	</security:http>
 
 </beans>

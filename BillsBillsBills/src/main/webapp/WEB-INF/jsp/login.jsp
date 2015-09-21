@@ -16,7 +16,7 @@
 <!-- 	</form> -->
 	
 	
-	<form method="POST" action="<c:url value='j_spring_security_check' />">
+	<form method="POST" action="<c:url value='/login' />">
 		<input type="text" name="username" placeholder="Name"/><br/>
     	<input type="password" name="password" placeholder="Password"/><br/>
      	<input type="submit" value="Sign In"/>

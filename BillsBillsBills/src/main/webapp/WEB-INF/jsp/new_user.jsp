@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form method="GET">
+	<form method="POST">
 		<input type="text" name="fname" placeholder="First Name"><br/>
 		<input type="text" name="lname" placeholder="Last Name"><br/>
 		<input type="email" name="email" placeholder="Email"><br/>
