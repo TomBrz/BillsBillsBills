@@ -25,7 +25,7 @@
 			<h2>&copy; Seppe en Tom - Eindproject</h2>
 			<br> <br>
 
-			<form class="form-horizontal" action="<c:url value='/login' />"
+			<form class="form-horizontal"  action="<c:url value='/login' />" 
 				method="POST">
 				<div class="form-group">
 					<label for="username" class="col-sm-2 control-label">username</label>

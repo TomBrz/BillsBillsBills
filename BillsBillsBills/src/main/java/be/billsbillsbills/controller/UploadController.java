@@ -47,7 +47,7 @@ public class UploadController {
 		
 
 		helper.createDirectory(directoryString);
-		helper.uploadImage(directoryString, file, uploadService);
+//		helper.uploadImage(directoryString, file, uploadService);
 
 		return new ModelAndView("uploadtest", "imageurl",
 				uploadService.findImage());

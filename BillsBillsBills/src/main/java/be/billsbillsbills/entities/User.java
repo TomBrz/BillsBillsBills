@@ -3,6 +3,7 @@ package be.billsbillsbills.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class User {
 	@Embedded
 	private Address address = new Address();
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade=CascadeType.PERSIST)
 	private List<Record_In> recordsIn = new ArrayList<Record_In>();
 
 	@OneToMany(mappedBy = "user")

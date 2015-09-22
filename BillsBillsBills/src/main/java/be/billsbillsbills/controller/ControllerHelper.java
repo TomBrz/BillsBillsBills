@@ -8,10 +8,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import be.billsbillsbills.service.UploadService;
 
+@Service
 public class ControllerHelper {
 
 	public void createDirectory(String directoryString) {
@@ -28,8 +30,8 @@ public class ControllerHelper {
 		}
 	}
 
-	public void uploadImage(String directoryString, MultipartFile file,
-			UploadService uploadService) {
+	public void uploadImage(String directoryString, MultipartFile file
+			) {
 
 		OutputStream outputStream = null;
 
@@ -40,7 +42,7 @@ public class ControllerHelper {
 				InputStream inputStream = new ByteArrayInputStream(byteArr);
 
 				String link = directoryString + file.getOriginalFilename();
-				uploadService.storeImage(file.getOriginalFilename());
+				
 
 				outputStream = new FileOutputStream(new File(link));
 

@@ -186,18 +186,18 @@
 								<h4 class="modal-title">Add a new invoice</h4>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form method="post" enctype="multipart/form-data">
 								<fieldset>
-								<label for="invoice_number">invoice number</label><input id="invoice_number" type="text"/>
+								<label for="invoice_number">invoice number</label><input name="invoice_number" type="text"/>
 								<br> 
-								<label for="client">Client:</label><input id="client" type="text"/>
+								<label for="client">Client:</label><input name="client" type="text"/>
 								<br>
-								<label for="amount">Amount:</label><input id="amount" type="number" step="0.01"/>
+								<label for="amount">Amount:</label><input name="amount" type="number" step="0.01"/>
 								<br>
-								<label for="datepicker">date:</label><input id="datepicker"/>
+								<label for="datepicker">date:</label><input name="datepicker"/>
 								<br>
 								<br>
-								<input id="file" type="file" value="upload file"/>
+								<input name="file" type="file"  accept=".jpg, .png"/>
 								<br>
 								<br>
 								<input type="submit" value="submit" class="btn btn-primary"/>
