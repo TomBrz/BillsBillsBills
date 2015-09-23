@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -155,16 +156,19 @@
 											</tr>
 										</thead>
 										<tbody>
+										<c:forEach items="${invoicesList}" var="record">
 											<tr>
-												<td>3326</td>
+												<td>${record.invoiceNumber}</td>
 												<td>10/21/2013</td>
 												<td>3:29 PM</td>
-												<td>$321.33</td>
-												<td>url</td>
+												<td>${record.amount}</td>
+												<td>${record.url}</td>
 											</tr>
+											</c:forEach>
 
 										</tbody>
 									</table>
+								
 								</div>
 								<div class="text-right">
 									<a href="#">View All Transactions <i

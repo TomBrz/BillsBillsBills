@@ -1,6 +1,7 @@
 package be.billsbillsbills.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import be.billsbillsbills.entities.Record_In;
 import be.billsbillsbills.service.HelperService;
+import be.billsbillsbills.service.RetrievalService;
 import be.billsbillsbills.service.StorageService;
 import be.billsbillsbills.service.StorageServiceImpl;
 
@@ -30,14 +32,19 @@ public class InvoicesController {
 	@Autowired
 	private ControllerHelper helper;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	private String handleGet() {
-		return "invoices";
+	@Autowired
+	private RetrievalService retrievalService;
 
+	@RequestMapping(method=RequestMethod.GET)
+	private ModelAndView handleGet(){
+		List<Record_In> list = retrievalService.getRecordsIn();
+		
+		return new ModelAndView("invoices", "invoicesList", list);
+		
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	private ModelAndView handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String client, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
+	private String handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String client, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
 		String tomcatHome = System.getenv("TOMCAT_HOME");
 		String directoryString = tomcatHome + "/webapps/resources/images/";
 		System.out.println(directoryString);
@@ -53,7 +60,7 @@ public class InvoicesController {
 		record.setUrl(directoryString + file.getOriginalFilename());
 		
 		storageService.storeDetails(record);
-		return new ModelAndView();
+		return "redirect:invoices.htm";
 	}
 
 }

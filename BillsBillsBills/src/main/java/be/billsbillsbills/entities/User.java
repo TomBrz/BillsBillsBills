@@ -31,6 +31,9 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<Record_out> recordsOut = new ArrayList<Record_out>();
 
+	public List<Record_In> getRecordsIn(){
+		return recordsIn;
+	}
 	public String getName() {
 		return name;
 	}
