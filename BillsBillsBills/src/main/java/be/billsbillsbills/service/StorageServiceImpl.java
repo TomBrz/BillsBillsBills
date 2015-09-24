@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import be.billsbillsbills.entities.Client;
 import be.billsbillsbills.entities.Record_In;
 import be.billsbillsbills.entities.User;
 
@@ -25,17 +26,24 @@ public class StorageServiceImpl implements StorageService {
 	public void storeDetails(Record_In record){
 	String userName = helper.getLoggedInUser();
 	TypedQuery<User> query=em.createQuery("select u from User u where name=?1", User.class);
-	System.out.println(userName);
+
 	query.setParameter(1, userName);
 	User user = query.getSingleResult();
 	user.addRecordIn(record);
 	
 	
 	em.persist(record);
-	
-	
-	
+	}
+
+	@Transactional
+	public void storeClients(Client client) {
+		String userName = helper.getLoggedInUser();
+		TypedQuery<User> query=em.createQuery("select u from User u where name=?1", User.class);
+		query.setParameter(1, userName);
+		User user = query.getSingleResult();
+		user.addClient(client);
 		
+		em.persist(client);	
 	}
 	
 	

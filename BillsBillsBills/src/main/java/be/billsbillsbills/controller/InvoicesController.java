@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import be.billsbillsbills.entities.Client;
+import be.billsbillsbills.entities.ClientCommand;
 import be.billsbillsbills.entities.Record_In;
 import be.billsbillsbills.service.HelperService;
 import be.billsbillsbills.service.RetrievalService;
@@ -37,7 +38,7 @@ public class InvoicesController {
 	private RetrievalService retrievalService;
 
 	@RequestMapping(method=RequestMethod.GET)
-	private ModelAndView handleGet(){
+	public ModelAndView handleGet(){
 		List<Record_In> list = retrievalService.getRecordsIn();
 		
 		return new ModelAndView("invoices", "invoicesList", list);
@@ -45,7 +46,7 @@ public class InvoicesController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	private String handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String clientName, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
+	public String handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String clientName, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
 		String tomcatHome = System.getenv("TOMCAT_HOME");
 		String directoryString = tomcatHome + "\\webapps\\resources\\images\\";
 		
@@ -71,5 +72,6 @@ public class InvoicesController {
 		storageService.storeDetails(record);
 		return "redirect:invoices.htm";
 	}
+	
 
 }

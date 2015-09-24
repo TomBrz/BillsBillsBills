@@ -199,7 +199,7 @@
 								<h4 class="modal-tile">Clients</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" action="invoices/clients" id="clientForm">
+								<form method="post" action="clients.htm" id="clientForm">
 									<fieldset>
 										<label for="name">company name: </label><input type="text"
 											name="name" /> <br> <label for="companyNumber">registry

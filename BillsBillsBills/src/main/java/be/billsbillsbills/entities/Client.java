@@ -3,10 +3,12 @@ package be.billsbillsbills.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,11 +21,22 @@ public class Client {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name="ClientName")
 	private String name;
 	private Address address;
 	private String companyNumber;
 	private String phone;
 	
+	@ManyToOne
+	private User user;
+	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	@OneToMany(mappedBy="client")
 	private List<Record_In> recordsIn = new ArrayList<Record_In>();
 	

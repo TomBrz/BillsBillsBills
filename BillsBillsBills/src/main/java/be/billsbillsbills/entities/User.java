@@ -30,6 +30,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<Record_out> recordsOut = new ArrayList<Record_out>();
+	
+	@OneToMany(mappedBy="user")
+	private List<Client> clientsList = new ArrayList<Client>();
 
 	public List<Record_In> getRecordsIn(){
 		return recordsIn;
@@ -104,6 +107,10 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public void addClient(Client client){
+		clientsList.add(client);
+		client.setUser(this);
 	}
 
 }
