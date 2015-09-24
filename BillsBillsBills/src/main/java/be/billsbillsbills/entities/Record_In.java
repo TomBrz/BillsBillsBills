@@ -1,5 +1,6 @@
 package be.billsbillsbills.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +16,7 @@ public class Record_In extends Record {
 		this.client = client;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "Client_ID")
 	public Client getClient() {
 		return client;

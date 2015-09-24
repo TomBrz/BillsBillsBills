@@ -34,6 +34,7 @@
 	href="${pageContext.servletContext.contextPath}/resources/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.servletContext.contextPath}/resources/css/modal.css" rel="stylesheet" type="text/css"/>
+<link href="${pageContext.servletContext.contextPath}/resources/css/invoices.css" rel = "stylesheet" type="text/css"/>
 <%-- 	<link
 	href="${pageContext.servletContext.contextPath}/resources/css/StatsPage.css"
 	rel="stylesheet" type="text/css" /> --%>
@@ -160,9 +161,9 @@
 											<tr>
 												<td>${record.invoiceNumber}</td>
 												<td>10/21/2013</td>
-												<td>3:29 PM</td>
+												<td>${record.client.name}</td>
 												<td>${record.amount}</td>
-												<td>${record.url}</td>
+												<td><a href="${record.url}"><img src="${record.url}" class="icon"/></a></td>
 											</tr>
 											</c:forEach>
 

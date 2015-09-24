@@ -21,10 +21,10 @@ public class ControllerHelper {
 		// bestaat
 		String directoryStringEscaped = directoryString.replace("\\", "/");
 		File directory = new File(directoryStringEscaped);
-		
+	
 		System.out.println("ESCAPED: " + directoryStringEscaped);
 		System.out.println(directory.exists());
-
+		System.out.println(directoryString);
 		if (!directory.exists()) {
 			directory.mkdirs();
 		}

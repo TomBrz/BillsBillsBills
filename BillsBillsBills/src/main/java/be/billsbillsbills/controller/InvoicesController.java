@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import be.billsbillsbills.entities.Client;
 import be.billsbillsbills.entities.Record_In;
 import be.billsbillsbills.service.HelperService;
 import be.billsbillsbills.service.RetrievalService;
@@ -44,21 +45,29 @@ public class InvoicesController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	private String handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String client, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
+	private String handlePost(@RequestParam("invoice_number")String invoiceNumber, @RequestParam("client") String clientName, @RequestParam("amount") String amount, @RequestParam("file") MultipartFile file) throws IOException{
 		String tomcatHome = System.getenv("TOMCAT_HOME");
-		String directoryString = tomcatHome + "/webapps/resources/images/";
-		System.out.println(directoryString);
+		String directoryString = tomcatHome + "\\webapps\\resources\\images\\";
 		
-
+		
+		String directoryStringEscaped = directoryString.replace("\\", "/");
 		helper.createDirectory(directoryString);
 		helper.uploadImage(directoryString, file);
 		
-		System.out.println(invoiceNumber + " " + client + " " + amount);
-		Record_In record= new Record_In();
-		record.setDescription(client);
-		record.setInvoiceNumber(invoiceNumber);
-		record.setUrl(directoryString + file.getOriginalFilename());
+		Client clientObj = new Client();
+		clientObj.setName(clientName);
+		System.out.println("??????????" + clientName);
+		System.out.println("!!!!!!!!!!!" + clientObj.getName());
 		
+		Record_In record= new Record_In();
+		clientObj.addRecordIn(record);
+		record.setDescription(clientName);
+		record.setAmount(Double.parseDouble(amount));
+		record.setInvoiceNumber(invoiceNumber);
+		record.setUrl("/resources/images/" + file.getOriginalFilename());
+		System.out.println(clientName);
+		System.out.println(record.getClient().getName());
+		System.out.println(clientObj.getName());
 		storageService.storeDetails(record);
 		return "redirect:invoices.htm";
 	}

@@ -31,7 +31,7 @@ public class Client {
 		return name;
 	}
 	public void setName(String name) {
-		name = name;
+		this.name = name;
 	}
 	public Address getAddress() {
 		return address;
