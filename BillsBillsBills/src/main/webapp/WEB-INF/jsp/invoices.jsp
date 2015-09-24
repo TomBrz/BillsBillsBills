@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +33,12 @@
 <link
 	href="${pageContext.servletContext.contextPath}/resources/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
-<link href="${pageContext.servletContext.contextPath}/resources/css/modal.css" rel="stylesheet" type="text/css"/>
-<link href="${pageContext.servletContext.contextPath}/resources/css/invoices.css" rel = "stylesheet" type="text/css"/>
+<link
+	href="${pageContext.servletContext.contextPath}/resources/css/modal.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="${pageContext.servletContext.contextPath}/resources/css/invoices.css"
+	rel="stylesheet" type="text/css" />
 <%-- 	<link
 	href="${pageContext.servletContext.contextPath}/resources/css/StatsPage.css"
 	rel="stylesheet" type="text/css" /> --%>
@@ -44,7 +48,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> 
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -78,8 +84,8 @@
 						<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
 						</li>
 						<li class="divider"></li>
-						<li><a href="logout"><i class="fa fa-fw fa-power-off"></i> Log
-								Out</a></li>
+						<li><a href="logout"><i class="fa fa-fw fa-power-off"></i>
+								Log Out</a></li>
 					</ul></li>
 			</ul>
 			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -141,10 +147,13 @@
 							<div class="panel-body">
 								<div class="table-responsive">
 
-									<button type="button" class="btn btn-warning"
-										data-toggle="modal" data-target="#myModal"
-										style="margin-top: 1em; margin-bottom: 1em;">Add an
-										invoice</button>
+									<button type="button" id="invoiceButton"
+										class="btn btn-warning" data-toggle="modal"
+										data-target="#myModal">Add an invoice</button>
+
+									<button type="button" id="clientButton" class="btn btn-info"
+										data-toggle="modal" data-target="#clientModal">add a
+										Client</button>
 
 									<table class="table table-bordered table-hover table-striped">
 										<thead>
@@ -157,19 +166,20 @@
 											</tr>
 										</thead>
 										<tbody>
-										<c:forEach items="${invoicesList}" var="record">
-											<tr>
-												<td>${record.invoiceNumber}</td>
-												<td>10/21/2013</td>
-												<td>${record.client.name}</td>
-												<td>${record.amount}</td>
-												<td><a href="${record.url}"><img src="${record.url}" class="icon"/></a></td>
-											</tr>
+											<c:forEach items="${invoicesList}" var="record">
+												<tr>
+													<td>${record.invoiceNumber}</td>
+													<td>10/21/2013</td>
+													<td>${record.client.name}</td>
+													<td>${record.amount}</td>
+													<td><a href="${record.url}"><img
+															src="${record.url}" class="icon" /></a></td>
+												</tr>
 											</c:forEach>
 
 										</tbody>
 									</table>
-								
+
 								</div>
 								<div class="text-right">
 									<a href="#">View All Transactions <i
@@ -181,72 +191,107 @@
 				</div>
 				<!-- /.row -->
 				<!-- Modal -->
-				<div id="myModal" class="modal fade" role="dialog">
+				<div id="clientModal" class="modal fade" role="dialog">
 					<div class="modal-dialog">
-
-						<!-- Modal content-->
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Add a new invoice</h4>
+								<h4 class="modal-tile">Clients</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" enctype="multipart/form-data">
-								<fieldset>
-								<label for="invoice_number">invoice number</label><input name="invoice_number" type="text"/>
-								<br> 
-								<label for="client">Client:</label><input name="client" type="text"/>
-								<br>
-								<label for="amount">Amount:</label><input name="amount" type="number" step="0.01"/>
-								<br>
-								<label for="datepicker">date:</label><input name="datepicker"/>
-								<br>
-								<br>
-								<input name="file" type="file"  accept=".jpg, .png"/>
-								<br>
-								<br>
-								<input type="submit" value="submit" class="btn btn-primary"/>
-								
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Cancel</button>
-								</fieldset>
+								<form method="post" action="invoices/clients" id="clientForm">
+									<fieldset>
+										<label for="name">company name: </label><input type="text"
+											name="name" /> <br> <label for="companyNumber">registry
+											number:</label> <input type="text" name="companyNumber" /> <br>
+										<label for="companyStreet">street: </label><input type="text"
+											name="companyStreet" /> <br> <label
+											for="companyStreetNumber">number: </label><input type="text"
+											name="companyStreetNumber" /> <br> <label
+											for="companyBox">box: </label><input type="text"
+											name="companyBox" /> <br> <label
+											for="companyMuncipality">City: </label><input type="text"
+											name="companyCity" /> <br> <label for="companyPhone">Phone:
+										</label><input type="text" name="companyPhone" /> <br> <br>
+										<input type="submit" value="submit" class="btn btn-primary" />
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Cancel</button>
+									</fieldset>
+
 								</form>
+								<div id="clientList"></div>
 							</div>
-							<div class="modal-footer">
-								
-							</div>
+							<div class="modal-footer"></div>
 						</div>
 
 					</div>
 				</div>
+					<div id="myModal" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Add a new invoice</h4>
+								</div>
+								<div class="modal-body">
+									<form method="post" enctype="multipart/form-data">
+										<fieldset>
+											<label for="invoice_number">invoice number</label><input
+												name="invoice_number" type="text" /> <br> <label
+												for="client">Client:</label><input name="client" type="text" />
+											<br> <label for="amount">Amount:</label><input
+												name="amount" type="number" step="0.01" /> <br> <label
+												for="datepicker">date:</label><input name="datepicker" /> <br>
+											<br> <input name="file" type="file" accept=".jpg, .png" />
+											<br> <br> <input type="submit" value="submit"
+												class="btn btn-primary" />
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Cancel</button>
+										</fieldset>
+									</form>
+								</div>
+								<div class="modal-footer"></div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
 
 			</div>
-			<!-- /.container-fluid -->
+			<!-- /#page-wrapper -->
 
 		</div>
-		<!-- /#page-wrapper -->
+		<!-- /#wrapper -->
 
-	</div>
-	<!-- /#wrapper -->
+		<!-- jQuery -->
+		<script
+			src="${pageContext.servletContext.contextPath}/resources/js/jquery.js"></script>
 
-	<!-- jQuery -->
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/jquery.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script
+			src="${pageContext.servletContext.contextPath}/resources/js/bootstrap.min.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/bootstrap.min.js"></script>
-
-	<!-- Morris Charts JavaScript -->
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/raphael.min.js"></script>
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/morris.min.js"></script>
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/morris-data.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> <script> $(document).ready(function() { $("#datepicker").datepicker(); }); </script>
-
+		<!-- Morris Charts JavaScript -->
+		<script
+			src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/raphael.min.js"></script>
+		<script
+			src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/morris.min.js"></script>
+		<script
+			src="${pageContext.servletContext.contextPath}/resources/js/plugins/morris/morris-data.js"></script>
+		<script type="text/javascript"
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#datepicker").datepicker();
+			});
+		</script>
 </body>
 
 </html>

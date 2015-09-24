@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+.icon {
+	height: 1em;
+}
+
+#clientButton, #invoicenButton {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#clientButton {
+	margin-left: 1em;
+}
